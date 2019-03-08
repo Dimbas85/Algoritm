@@ -25,7 +25,9 @@ public class Stack<Item> {
 
     private void resize(int newSize) {
         Object[] newStack = new Object[newSize];
-        System.arraycopy(stack, 0, newStack, 0, stack.length);
+        for (int i = 0; i < size; i++) {
+            newStack[i] = stack[i];
+        }
         stack = newStack;
     }
 

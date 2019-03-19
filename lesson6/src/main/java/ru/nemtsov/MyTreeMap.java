@@ -108,10 +108,10 @@ public class MyTreeMap<Key extends Comparable<Key>, Value> {
             node.value = value;
         } else if (cmp < 0) {
             node.left = put(node.left, key, value);
-            node.height = Math.max(1, height(node.right));
+            node.height = Math.max(height(node.left), height(node.right)) + 1;
         } else {
             node.right = put(node.right, key, value);
-            node.height = Math.max(height(node.left), 1);
+            node.height = Math.max(height(node.left), height(node.right)) + 1;
         }
         node.size = size(node.left) + size(node.right) + 1;
         return node;
@@ -234,6 +234,23 @@ public class MyTreeMap<Key extends Comparable<Key>, Value> {
 
         root = remove(root, key);
 
+    }
+
+    public boolean isBalanced() {
+        return isBalanced(root);
+    }
+
+    private boolean isBalanced(Node node) {
+        if (node.right == null && node.left == null) {
+            return true;
+        }
+        if (node.right == null) {
+            return node.left.height <= 1;
+        }
+        if (node.left == null) {
+            return node.right.height <= 1;
+        }
+        return isBalanced(node.left) && isBalanced(node.right);
     }
 
 }

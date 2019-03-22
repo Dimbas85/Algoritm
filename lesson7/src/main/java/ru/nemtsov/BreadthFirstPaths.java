@@ -17,6 +17,7 @@ public class BreadthFirstPaths {
         if (source >= g.vertexCount()) {
             throw new IndexOutOfBoundsException();
         }
+
         marked = new boolean[g.vertexCount()];
         edgeTo = new int[g.vertexCount()];
         distTo = new int[g.vertexCount()];

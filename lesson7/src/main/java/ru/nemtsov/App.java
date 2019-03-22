@@ -25,14 +25,7 @@ public class App
         g.addEdge(9, 8);
 
         BreadthFirstPaths bfp = new BreadthFirstPaths(g, 0);
-        System.out.println(bfp.hasPathTo(1));
         System.out.println(bfp.pathTo(7));
-        System.out.println(bfp.pathTo(2));
-        System.out.println(bfp.distTo(1));
-        System.out.println(bfp.distTo(2));
-        System.out.println(bfp.distTo(3));
-        System.out.println(bfp.distTo(4));
-        System.out.println(bfp.distTo(5));
     }
     
 }
